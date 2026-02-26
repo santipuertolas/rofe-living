@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" fill="none">
+  <defs><style>@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&amp;display=swap");</style></defs>
+  <polygon points="120,8 140,18 140,42 120,52 100,42 100,18" stroke="#e8e4df" stroke-width="1.0" fill="none"/>
+  <text x="120" y="39" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="100" font-size="20" fill="#e8e4df">R</text>
+  <text x="120" y="84" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="100" font-size="28" fill="#e8e4df" letter-spacing="10">RØFE</text>
+  <text x="120" y="102" text-anchor="middle" font-family="'Raleway', sans-serif" font-weight="100" font-size="9" fill="#807b75" letter-spacing="8">LIVING</text>
+</svg>

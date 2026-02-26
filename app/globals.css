@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --rofe-basalt: #2B2B2A;
+  --rofe-stone: #3A3632;
+  --rofe-ash: #807B75;
+  --rofe-drift: #A39E97;
+  --rofe-cream: #E8E4DF;
+  --rofe-warm: #F0EBE4;
+  --rofe-white: #FAF9F7;
+}
+
+@theme inline {
+  --color-rofe-basalt: #2B2B2A;
+  --color-rofe-stone: #3A3632;
+  --color-rofe-ash: #807B75;
+  --color-rofe-drift: #A39E97;
+  --color-rofe-cream: #E8E4DF;
+  --color-rofe-warm: #F0EBE4;
+  --color-rofe-white: #FAF9F7;
+
+  --color-background: var(--rofe-white);
+  --color-foreground: var(--rofe-basalt);
+}
+
+@layer base {
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+    background-color: var(--rofe-white);
+    color: var(--rofe-basalt);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 200;
+  }
+
+  input, select, textarea {
+    font-family: 'Josefin Sans', sans-serif;
+  }
+}
