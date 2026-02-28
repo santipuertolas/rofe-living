@@ -49,30 +49,42 @@ export default async function PropertyDetailPage({ params }: Props) {
 
       {/* Image Gallery */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <div className="md:col-span-2 aspect-[16/9] overflow-hidden relative">
+        {/* Mobile: single image */}
+        <div className="md:hidden aspect-[16/9] overflow-hidden relative">
+          <Image
+            src={property.images[0]}
+            alt={`${property.name} — main photo`}
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+          />
+        </div>
+        {/* Desktop: 5-photo grid */}
+        <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-2 h-[520px]">
+          {/* Main large photo */}
+          <div className="col-span-2 row-span-2 overflow-hidden relative">
             <Image
               src={property.images[0]}
               alt={`${property.name} — main photo`}
               fill
               className="object-cover"
               priority
-              sizes="(max-width: 768px) 100vw, 66vw"
+              sizes="50vw"
             />
           </div>
-          <div className="flex flex-col gap-3">
-            {property.images.slice(1, 3).map((img, i) => (
-              <div key={i} className="relative aspect-[4/3] overflow-hidden flex-1">
-                <Image
-                  src={img}
-                  alt={`${property.name} — photo ${i + 2}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-              </div>
-            ))}
-          </div>
+          {/* 4 smaller photos */}
+          {property.images.slice(1, 5).map((img, i) => (
+            <div key={i} className="overflow-hidden relative">
+              <Image
+                src={img}
+                alt={`${property.name} — photo ${i + 2}`}
+                fill
+                className="object-cover"
+                sizes="25vw"
+              />
+            </div>
+          ))}
         </div>
       </section>
 

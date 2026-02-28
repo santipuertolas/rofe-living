@@ -1,6 +1,6 @@
 'use client'
 
-import { Mail, Phone, MapPin, Instagram, Send } from 'lucide-react'
+import { Mail, MapPin, Send } from 'lucide-react'
 import { useState, FormEvent } from 'react'
 import type { Metadata } from 'next'
 
@@ -113,26 +113,6 @@ export default function ContactPage() {
                       Canary Islands, Spain
                     </p>
                   </div>
-                </div>
-              </div>
-
-              <div className="mb-14">
-                <h3
-                  className="text-xs uppercase tracking-[0.2em] text-rofe-drift mb-4"
-                  style={{ fontWeight: 300 }}
-                >
-                  Follow Us
-                </h3>
-                <div className="flex gap-4">
-                  <a
-                    href="https://instagram.com/rofeliving"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-rofe-warm flex items-center justify-center text-rofe-ash hover:bg-rofe-basalt hover:text-rofe-cream transition-all"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
 

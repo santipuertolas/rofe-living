@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Instagram, Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -98,17 +98,6 @@ export function Footer() {
                 <span>La Santa, Lanzarote<br />Canary Islands, Spain</span>
               </li>
             </ul>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="https://instagram.com/rofeliving"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-rofe-ash hover:text-rofe-cream transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
           </div>
         </div>
 
