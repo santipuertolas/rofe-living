@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { ArrowRight } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'About — RØFE Living',
@@ -44,17 +45,13 @@ export default function AboutPage() {
       <section className="py-24 px-6 sm:px-8 lg:px-12">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-16">
-            <svg
-              width="48"
-              height="54"
-              viewBox="0 0 32 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="mx-auto mb-8"
-            >
-              <path d="M16 1L30 9.5V26.5L16 35L2 26.5V9.5L16 1Z" stroke="#A39E97" strokeWidth="1" fill="none" />
-              <path d="M16 8L24 12.5V21.5L16 26L8 21.5V12.5L16 8Z" stroke="#A39E97" strokeWidth="0.75" fill="none" />
-            </svg>
+            <Image
+              src="/brand/logo-icon-dark.svg"
+              alt="RØFE mark"
+              width={48}
+              height={48}
+              className="mx-auto mb-8 opacity-60"
+            />
           </div>
           <div className="space-y-8 text-rofe-ash leading-relaxed" style={{ fontWeight: 300 }}>
             <p className="text-lg text-rofe-basalt text-center" style={{ fontWeight: 200 }}>
@@ -63,20 +60,22 @@ export default function AboutPage() {
             </p>
             <div className="w-12 h-[1px] bg-rofe-cream mx-auto" />
             <p>
-              Our hexagonal mark references the geometric basalt columns and dry-stone <em>gavias</em> —
-              walled agricultural enclosures — that define the Canarian landscape. RØFE Living brings
+              Our mark — a single diagonal stroke — is extracted from the Ø at the heart of our name.
+              It references the crack in volcanic basalt, the line through the stone. RØFE Living brings
               this spirit of authenticity and connection to the land into a modern, minimalist hospitality
               experience.
             </p>
             <p>
-              We are building a curated portfolio of exclusive properties, each selected and designed
-              to offer guests an unparalleled experience — combining contemporary design with the
-              distinctive volcanic landscape and coastal charm that defines Lanzarote.
+              We&apos;re Santiago and Jemina. We moved to Lanzarote because of exactly the things we want
+              you to experience — the volcanic light, the food, the silence, the surf, the sense that
+              you&apos;re somewhere genuinely different. We started RØFE Living because we wanted to create
+              places we&apos;d want to stay in ourselves: considered spaces where everything is intentional,
+              nothing is superfluous, and the island is always close.
             </p>
             <p>
-              Our properties are more than places to stay. They are carefully crafted spaces that
-              celebrate the island's unique character while providing all the modern comforts you need
-              for a truly memorable stay.
+              RØFE Arrecife is our first building — three apartments in the heart of the capital, each
+              named after an element of Canarian culture. RØFE La Santa is our studio by the sea.
+              Everything we do starts from knowing this place deeply, and wanting to share it honestly.
             </p>
           </div>
         </div>
@@ -90,7 +89,7 @@ export default function AboutPage() {
               className="text-xs tracking-[0.3em] uppercase text-rofe-drift mb-4"
               style={{ fontWeight: 300 }}
             >
-              What We Believe
+              What we believe
             </p>
             <h2
               className="text-4xl text-rofe-basalt tracking-[0.04em]"
@@ -103,16 +102,16 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
             {[
               {
-                title: 'Excellence',
-                text: 'We maintain the highest standards in every aspect of our service, from property selection and design to guest experience and support.',
-              },
-              {
                 title: 'Authenticity',
-                text: "Our properties celebrate Lanzarote's unique character, offering genuine experiences that connect guests with the island's culture and natural beauty.",
+                text: "No stock recommendations, no generic welcome baskets. Everything we suggest, we've tried. Every detail in our spaces we chose on purpose.",
               },
               {
-                title: 'Hospitality',
-                text: 'Personalized, attentive service that anticipates your needs and exceeds expectations throughout your stay on the island.',
+                title: 'Rootedness',
+                text: "Our properties celebrate what makes Lanzarote singular — the light, the stone, the volcanic calm. We don't try to make it look like somewhere else.",
+              },
+              {
+                title: 'Directness',
+                text: "We're here, on the island, reachable. If something needs fixing, we fix it. If you need a restaurant recommendation at 9pm, message us.",
               },
             ].map(({ title, text }) => (
               <div key={title} className="text-center">
@@ -149,19 +148,19 @@ export default function AboutPage() {
               <div className="space-y-5 text-rofe-ash leading-relaxed" style={{ fontWeight: 300 }}>
                 <p>
                   Lanzarote is unlike any other destination in the world. This UNESCO Biosphere
-                  Reserve captivates visitors with its otherworldly volcanic landscapes, pristine
-                  beaches, and unique architectural heritage shaped by the visionary artist César
+                  Reserve captivates with its otherworldly volcanic landscapes, pristine
+                  beaches, and a unique architectural heritage shaped by the visionary artist César
                   Manrique.
                 </p>
                 <p>
                   The island offers perfect year-round weather, world-class surfing, exceptional
                   dining, and a vibrant cultural scene — all while maintaining an intimate, authentic
-                  character that sets it apart from more crowded destinations.
+                  character that most of the Canaries have long since lost.
                 </p>
                 <p>
-                  For discerning travelers, Lanzarote represents the perfect balance: sophisticated
-                  enough to meet high standards, yet unspoiled enough to offer genuine adventure and
-                  discovery.
+                  It rewards curiosity. The more you explore, the more it gives — volcanic hikes,
+                  a wine culture unlike anywhere else, underground caves, a coast that never gets old.
+                  We&apos;ve been here for years and we&apos;re still finding new things.
                 </p>
               </div>
             </div>
@@ -185,21 +184,22 @@ export default function AboutPage() {
             className="text-xs tracking-[0.3em] uppercase mb-6 text-rofe-ash"
             style={{ fontWeight: 300 }}
           >
-            Experience
+            Ready when you are
           </p>
           <h2
             className="text-4xl mb-8 tracking-[0.04em]"
             style={{ fontWeight: 200 }}
           >
-            Discover the RØFE Living Difference
+            Find your stay
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/properties"
-              className="px-8 py-3.5 bg-rofe-cream text-rofe-basalt text-sm tracking-[0.15em] uppercase hover:bg-rofe-warm transition-colors"
+              className="inline-flex items-center justify-center gap-3 px-8 py-3.5 bg-rofe-cream text-rofe-basalt text-sm tracking-[0.15em] uppercase hover:bg-rofe-warm transition-colors"
               style={{ fontWeight: 300 }}
             >
-              View Properties
+              See our properties
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/contact"

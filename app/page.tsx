@@ -40,7 +40,7 @@ export default function HomePage() {
             className="text-lg md:text-xl mb-12 text-rofe-cream/80 max-w-xl mx-auto"
             style={{ fontWeight: 300 }}
           >
-            Authentic stays where the raw beauty of the Canaries meets modern, minimalist hospitality
+            Design-forward stays in Lanzarote, rooted in the land and culture of the Canary Islands
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -48,7 +48,7 @@ export default function HomePage() {
               className="px-8 py-3.5 bg-rofe-cream text-rofe-basalt text-sm tracking-[0.15em] uppercase hover:bg-rofe-warm transition-colors inline-flex items-center justify-center gap-3"
               style={{ fontWeight: 300 }}
             >
-              Explore Properties
+              See our properties
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -81,13 +81,13 @@ export default function HomePage() {
               className="text-xs tracking-[0.3em] uppercase text-rofe-drift mb-4"
               style={{ fontWeight: 300 }}
             >
-              Curated Selection
+              Where to stay
             </p>
             <h2
               className="text-4xl md:text-5xl text-rofe-basalt tracking-[0.04em]"
               style={{ fontWeight: 200 }}
             >
-              Featured Properties
+              Our Properties
             </h2>
           </div>
 
@@ -116,45 +116,43 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
             <div>
               <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center">
-                <svg width="40" height="44" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 1L30 9.5V26.5L16 35L2 26.5V9.5L16 1Z" stroke="#A39E97" strokeWidth="1" fill="none" />
+                <svg width="24" height="32" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="15" y1="2" x2="5" y2="26" stroke="#A39E97" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
               <h3 className="text-lg mb-3 text-rofe-basalt tracking-[0.05em]" style={{ fontWeight: 200 }}>
                 Volcanic Heritage
               </h3>
               <p className="text-rofe-ash text-sm leading-relaxed" style={{ fontWeight: 300 }}>
-                Named after the traditional volcanic stone used for centuries in Canarian agriculture to retain moisture in arid soil
+                Named after <em>rofe</em> — the traditional volcanic stone used for centuries in Canarian agriculture. The island is in our name, and in everything we do.
               </p>
             </div>
 
             <div>
               <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center">
-                <svg width="40" height="44" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 1L30 9.5V26.5L16 35L2 26.5V9.5L16 1Z" stroke="#A39E97" strokeWidth="1" fill="none" />
-                  <path d="M16 8L24 12.5V21.5L16 26L8 21.5V12.5L16 8Z" stroke="#A39E97" strokeWidth="0.75" fill="none" />
+                <svg width="24" height="32" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="15" y1="2" x2="5" y2="26" stroke="#A39E97" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
               <h3 className="text-lg mb-3 text-rofe-basalt tracking-[0.05em]" style={{ fontWeight: 200 }}>
-                Curated Design
+                Considered Design
               </h3>
               <p className="text-rofe-ash text-sm leading-relaxed" style={{ fontWeight: 300 }}>
-                Each property is thoughtfully designed to celebrate the island's unique character with modern, minimalist elegance
+                Each space is designed to feel rooted — in the island&apos;s palette, its textures, its unhurried rhythm. Beautiful without trying too hard.
               </p>
             </div>
 
             <div>
               <div className="w-12 h-12 mx-auto mb-6 flex items-center justify-center">
-                <svg width="40" height="44" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 1L30 9.5V26.5L16 35L2 26.5V9.5L16 1Z" stroke="#A39E97" strokeWidth="1" fill="none" />
-                  <circle cx="16" cy="18" r="4" stroke="#A39E97" strokeWidth="0.75" fill="none" />
+                <svg width="24" height="32" viewBox="0 0 20 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="15" y1="2" x2="5" y2="26" stroke="#A39E97" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
               <h3 className="text-lg mb-3 text-rofe-basalt tracking-[0.05em]" style={{ fontWeight: 200 }}>
-                Attentive Service
+                Locally Rooted
               </h3>
               <p className="text-rofe-ash text-sm leading-relaxed" style={{ fontWeight: 300 }}>
-                Dedicated support anticipating your needs throughout your stay on the island
+                We live on the island. Every recommendation, every design choice, every detail comes from years of calling Lanzarote home.
               </p>
             </div>
           </div>
@@ -179,20 +177,20 @@ export default function HomePage() {
             className="text-xs tracking-[0.3em] uppercase mb-6 text-rofe-cream/60"
             style={{ fontWeight: 300 }}
           >
-            Begin Your Journey
+            Lanzarote awaits
           </p>
           <h2
             className="text-4xl md:text-5xl mb-8 tracking-[0.04em]"
             style={{ fontWeight: 200 }}
           >
-            Your Lanzarote Escape Awaits
+            Find your stay
           </h2>
           <Link
             href="/properties"
             className="inline-flex items-center gap-3 px-8 py-3.5 bg-rofe-cream text-rofe-basalt text-sm tracking-[0.15em] uppercase hover:bg-rofe-warm transition-colors"
             style={{ fontWeight: 300 }}
           >
-            Book Your Stay
+            See our properties
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

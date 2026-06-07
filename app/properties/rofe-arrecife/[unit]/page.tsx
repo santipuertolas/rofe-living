@@ -2,34 +2,32 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Bed, Bath, Users, MapPin, Check, ArrowLeft } from 'lucide-react'
-import { properties } from '@/lib/properties'
+import { arrecifeUnits, ArrecifeUnitId } from '@/lib/properties'
 import type { Metadata } from 'next'
 
 interface Props {
-  params: Promise<{ id: string }>
+  params: Promise<{ unit: string }>
 }
 
-export async function generateStaticParams() {
-  return properties
-    .filter((p) => p.status === 'available' && p.id !== 'rofe-arrecife')
-    .map((p) => ({ id: p.id }))
+export function generateStaticParams() {
+  return arrecifeUnits.map((u) => ({ unit: u.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
-  const property = properties.find((p) => p.id === id)
-  if (!property) return {}
+  const { unit } = await params
+  const data = arrecifeUnits.find((u) => u.id === unit)
+  if (!data) return {}
   return {
-    title: `${property.name} — RØFE Living`,
-    description: property.shortDescription,
+    title: `${data.displayName} — RØFE Arrecife`,
+    description: data.shortDescription,
   }
 }
 
-export default async function PropertyDetailPage({ params }: Props) {
-  const { id } = await params
-  const property = properties.find((p) => p.id === id)
+export default async function ArrecifeUnitPage({ params }: Props) {
+  const { unit } = await params
+  const data = arrecifeUnits.find((u) => u.id === (unit as ArrecifeUnitId))
 
-  if (!property || property.status === 'coming-soon') {
+  if (!data) {
     notFound()
   }
 
@@ -38,12 +36,12 @@ export default async function PropertyDetailPage({ params }: Props) {
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
         <Link
-          href="/properties"
+          href="/properties/rofe-arrecife"
           className="inline-flex items-center gap-2 text-rofe-ash hover:text-rofe-basalt transition-colors text-sm tracking-[0.1em] uppercase"
           style={{ fontWeight: 300 }}
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Properties
+          Back to RØFE Arrecife
         </Link>
       </div>
 
@@ -52,43 +50,54 @@ export default async function PropertyDetailPage({ params }: Props) {
         {/* Mobile: single image */}
         <div className="md:hidden aspect-[16/9] overflow-hidden relative">
           <Image
-            src={property.images[0]}
-            alt={`${property.name} — main photo`}
+            src={data.images[0]}
+            alt={`${data.displayName} — main photo`}
             fill
             className="object-cover"
             priority
             sizes="100vw"
           />
         </div>
-        {/* Desktop: 5-photo grid */}
-        <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-2 h-[520px]">
-          {/* Main large photo */}
-          <div className="col-span-2 row-span-2 overflow-hidden relative">
+        {/* Desktop: 5-photo grid (or single large if only one image) */}
+        {data.images.length === 1 ? (
+          <div className="hidden md:block aspect-[16/9] overflow-hidden relative">
             <Image
-              src={property.images[0]}
-              alt={`${property.name} — main photo`}
+              src={data.images[0]}
+              alt={`${data.displayName} — main photo`}
               fill
               className="object-cover"
               priority
-              sizes="50vw"
+              sizes="100vw"
             />
           </div>
-          {/* 4 smaller photos */}
-          {property.images.slice(1, 5).map((img, i) => (
-            <div key={i} className="overflow-hidden relative">
+        ) : (
+          <div className="hidden md:grid grid-cols-4 grid-rows-2 gap-2 h-[520px]">
+            <div className="col-span-2 row-span-2 overflow-hidden relative">
               <Image
-                src={img}
-                alt={`${property.name} — photo ${i + 2}`}
+                src={data.images[0]}
+                alt={`${data.displayName} — main photo`}
                 fill
                 className="object-cover"
-                sizes="25vw"
+                priority
+                sizes="50vw"
               />
             </div>
-          ))}
-        </div>
+            {data.images.slice(1, 5).map((img, i) => (
+              <div key={i} className="overflow-hidden relative">
+                <Image
+                  src={img}
+                  alt={`${data.displayName} — photo ${i + 2}`}
+                  fill
+                  className="object-cover"
+                  sizes="25vw"
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </section>
 
-      {/* Property Details */}
+      {/* Unit Details */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           {/* Main Content */}
@@ -97,20 +106,20 @@ export default async function PropertyDetailPage({ params }: Props) {
               <div className="flex items-center gap-2 text-rofe-drift mb-3">
                 <MapPin className="w-4 h-4" />
                 <span className="text-xs tracking-[0.15em] uppercase" style={{ fontWeight: 300 }}>
-                  {property.location}
+                  Arrecife, Lanzarote
                 </span>
               </div>
               <h1
                 className="text-4xl md:text-5xl text-rofe-basalt tracking-[0.04em] mb-2"
                 style={{ fontWeight: 200 }}
               >
-                {property.name}
+                {data.displayName}
               </h1>
               <p
                 className="text-sm text-rofe-drift uppercase tracking-[0.1em]"
                 style={{ fontWeight: 300 }}
               >
-                {property.type}
+                {data.type}
               </p>
             </div>
 
@@ -125,7 +134,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                     Bedrooms
                   </div>
                   <div className="text-rofe-basalt" style={{ fontWeight: 300 }}>
-                    {property.bedrooms}
+                    {data.bedrooms === 0 ? 'Studio' : data.bedrooms}
                   </div>
                 </div>
               </div>
@@ -139,7 +148,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                     Bathrooms
                   </div>
                   <div className="text-rofe-basalt" style={{ fontWeight: 300 }}>
-                    {property.bathrooms}
+                    {data.bathrooms}
                   </div>
                 </div>
               </div>
@@ -153,7 +162,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                     Max Guests
                   </div>
                   <div className="text-rofe-basalt" style={{ fontWeight: 300 }}>
-                    {property.maxGuests}
+                    {data.maxGuests}
                   </div>
                 </div>
               </div>
@@ -164,14 +173,14 @@ export default async function PropertyDetailPage({ params }: Props) {
                 className="text-2xl mb-5 text-rofe-basalt tracking-[0.04em]"
                 style={{ fontWeight: 200 }}
               >
-                About This Property
+                About This Apartment
               </h2>
               <p className="text-rofe-ash leading-relaxed" style={{ fontWeight: 300 }}>
-                {property.description}
+                {data.description}
               </p>
             </div>
 
-            {property.amenities.length > 0 && (
+            {data.amenities.length > 0 && (
               <div>
                 <h2
                   className="text-2xl mb-5 text-rofe-basalt tracking-[0.04em]"
@@ -180,7 +189,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                   Amenities
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {property.amenities.map((amenity, index) => (
+                  {data.amenities.map((amenity, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <Check className="w-4 h-4 text-rofe-drift flex-shrink-0" />
                       <span className="text-rofe-ash text-sm" style={{ fontWeight: 300 }}>
@@ -202,28 +211,18 @@ export default async function PropertyDetailPage({ params }: Props) {
               >
                 Book Your Stay
               </h2>
-              {property.bookingIframeUrl ? (
-                <iframe
-                  src={property.bookingIframeUrl}
-                  title={`Book ${property.name}`}
-                  className="w-full border-0"
-                  style={{ height: '680px' }}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="bg-rofe-warm border border-rofe-cream p-8 text-center">
-                  <p className="text-rofe-ash text-sm mb-4" style={{ fontWeight: 300 }}>
-                    Contact us to book this property
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="inline-block px-6 py-3 bg-rofe-basalt text-rofe-cream text-sm tracking-[0.15em] uppercase hover:bg-rofe-stone transition-colors"
-                    style={{ fontWeight: 300 }}
-                  >
-                    Get in Touch
-                  </Link>
-                </div>
-              )}
+              <div className="bg-rofe-warm border border-rofe-cream p-8 text-center">
+                <p className="text-rofe-ash text-sm mb-4" style={{ fontWeight: 300 }}>
+                  Contact us to book {data.displayName}
+                </p>
+                <Link
+                  href="/contact"
+                  className="inline-block px-6 py-3 bg-rofe-basalt text-rofe-cream text-sm tracking-[0.15em] uppercase hover:bg-rofe-stone transition-colors"
+                  style={{ fontWeight: 300 }}
+                >
+                  Get in Touch
+                </Link>
+              </div>
             </div>
           </div>
         </div>

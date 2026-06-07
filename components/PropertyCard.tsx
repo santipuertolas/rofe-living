@@ -129,18 +129,27 @@ export function PropertyCard({ property }: PropertyCardProps) {
 
           {/* Features */}
           <div className="flex items-center gap-5 text-sm text-rofe-ash border-t border-rofe-cream pt-4">
-            <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
-              <Bed className="w-4 h-4 text-rofe-drift" />
-              <span>{property.bedrooms}</span>
-            </div>
-            <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
-              <Bath className="w-4 h-4 text-rofe-drift" />
-              <span>{property.bathrooms}</span>
-            </div>
-            <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
-              <Users className="w-4 h-4 text-rofe-drift" />
-              <span>{property.maxGuests}</span>
-            </div>
+            {property.unitCount ? (
+              <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
+                <Users className="w-4 h-4 text-rofe-drift" />
+                <span>{property.unitCount} apartments</span>
+              </div>
+            ) : (
+              <>
+                <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
+                  <Bed className="w-4 h-4 text-rofe-drift" />
+                  <span>{property.bedrooms}</span>
+                </div>
+                <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
+                  <Bath className="w-4 h-4 text-rofe-drift" />
+                  <span>{property.bathrooms}</span>
+                </div>
+                <div className="flex items-center gap-1.5" style={{ fontWeight: 300 }}>
+                  <Users className="w-4 h-4 text-rofe-drift" />
+                  <span>{property.maxGuests}</span>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

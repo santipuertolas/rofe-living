@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Properties — RØFE Living',
   description:
-    'Browse our collection of vacation rentals in Lanzarote. Currently available: RØFE La Santa. More properties coming soon.',
+    'Our collection of vacation rentals in Lanzarote — RØFE La Santa in La Santa and RØFE Arrecife in the heart of the capital.',
 }
 
 export default function PropertiesPage() {
@@ -38,7 +38,7 @@ export default function PropertiesPage() {
       {/* Properties Grid */}
       <section className="py-20 px-6 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {properties.map((property) => (
               <PropertyCard key={property.id} property={property} />
             ))}

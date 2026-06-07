@@ -68,9 +68,26 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <span className="text-rofe-stone text-sm italic" style={{ fontWeight: 300 }}>
-                  More coming soon
-                </span>
+                <Link
+                  href="/properties/rofe-arrecife"
+                  className="text-rofe-ash hover:text-rofe-cream transition-colors text-sm"
+                  style={{ fontWeight: 300 }}
+                >
+                  RØFE Arrecife
+                </Link>
+              </li>
+              <li className="pl-3 space-y-2">
+                {['calima', 'mojo', 'picon'].map((unit) => (
+                  <div key={unit}>
+                    <Link
+                      href={`/properties/rofe-arrecife/${unit}`}
+                      className="text-rofe-stone hover:text-rofe-ash transition-colors text-xs tracking-[0.05em] uppercase"
+                      style={{ fontWeight: 300 }}
+                    >
+                      {unit === 'picon' ? 'Picón' : unit.charAt(0).toUpperCase() + unit.slice(1)}
+                    </Link>
+                  </div>
+                ))}
               </li>
             </ul>
           </div>
@@ -95,7 +112,7 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-3 text-rofe-ash text-sm" style={{ fontWeight: 300 }}>
                 <MapPin className="w-4 h-4 text-rofe-drift mt-0.5 flex-shrink-0" />
-                <span>La Santa, Lanzarote<br />Canary Islands, Spain</span>
+                <span>Arrecife &amp; La Santa · Lanzarote<br />Canary Islands, Spain</span>
               </li>
             </ul>
           </div>
