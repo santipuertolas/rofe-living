@@ -9,9 +9,11 @@ interface Props {
   params: Promise<{ id: string }>
 }
 
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   return properties
-    .filter((p) => p.status === 'available' && p.id !== 'rofe-arrecife')
+    .filter((p) => p.status === 'available' && !p.href)
     .map((p) => ({ id: p.id }))
 }
 

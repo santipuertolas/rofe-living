@@ -84,7 +84,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
   }
 
   return (
-    <Link href={`/properties/${property.id}`} className="group">
+    <Link href={property.href ?? `/properties/${property.id}`} className="group">
       <div className="overflow-hidden bg-rofe-white hover:shadow-lg transition-all duration-500">
         {/* Image */}
         <div className="relative aspect-[4/3] overflow-hidden">
