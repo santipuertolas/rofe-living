@@ -18,7 +18,7 @@ export const unitData: Record<Unit, UnitData> = {
     displayName: 'CALIMA',
     descriptionParagraphs: [
       'CALIMA is a top-floor studio designed for two — named after the warm Saharan wind that sweeps across the islands, bringing hazy golden light. Your own private rooftop hideaway in the heart of Arrecife.',
-      'A few things we\'re particularly proud of: the specialty coffee corner (AeroPress, hand grinder, gooseneck kettle with temperature control, precision scale, and beans to get you started), the Marshall speaker for your own soundtrack (connect via Bluetooth, look for "Acton III"), a fully equipped kitchen with induction hob and integrated fridge, and ~50 m² of private terrace with a sun lounger and outdoor furniture.',
+      'A few things we\'re particularly proud of: the specialty coffee corner (AeroPress, hand grinder, gooseneck kettle with temperature control, precision scale, and beans to get you started), the Marshall speaker for your own soundtrack (connect via Bluetooth, look for "Acton III"), a fully equipped kitchen with induction hob and integrated fridge (no oven), and ~50 m² of private terrace with a sun lounger and outdoor furniture.',
       'You\'ll also find fresh bed linens, towels, and toiletries (shampoo, conditioner, body soap) and a hair dryer in the bathroom.',
     ],
     accessIntro: 'All doors use codes shared in your Airbnb message — no keys needed. Three doors between the street and your bed:',
