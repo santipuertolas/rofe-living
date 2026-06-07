@@ -72,7 +72,7 @@ export function BuildingSection({ unit }: BuildingSectionProps) {
             <strong style={{ fontWeight: 400 }}>Shared terrace:</strong> 8:00 – 21:00
           </p>
           <p className="text-rofe-basalt mb-3" style={{ fontSize: '15px', lineHeight: 1.8 }}>
-            <strong style={{ fontWeight: 400 }}>No smoking</strong> inside the apartments. Smoking is permitted on the terraces — please pick up all cigarette butts and clean up after yourself.
+            <strong style={{ fontWeight: 400 }}>No smoking</strong> anywhere in the building — including apartments, private terraces, balconies, and the shared rooftop terrace.
           </p>
           <p className="text-rofe-basalt mb-3" style={{ fontSize: '15px', lineHeight: 1.8 }}>
             <strong style={{ fontWeight: 400 }}>Quiet hours</strong> after 22:00
